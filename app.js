@@ -59,7 +59,7 @@ app.get("/", function(req,res){
 //     day="weekend";
 //    }else{
 //     day="weekday";
-//    }
+   }
 
 
 
