@@ -10,10 +10,6 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
-
-// let items=["Eat","Sleep","Repeat"];
-// let workItems=[];
-
 // ///////////////////////////////////////////////////////////
 // Creating the mongodb database
 
@@ -52,65 +48,7 @@ app.get("/", function(req,res){
    var today=new Date;
    var currentDay=today.getDay();
    day="";
-
-
-   
-//    if(currentDay===6 || currentDay===0){
-//     day="weekend";
-//    }else{
-//     day="weekday";
-   }
-
-
-
-    // if(currentDay===0){
-    //     day="Sunday";
-    // }
-    // else if(currentDay===1){
-    //     day="Monday";
-    // }
-    // else if(currentDay===2){
-    //     day="Tuesday";
-    // }
-    // else if(currentDay===3){
-    //     day="Wednesday";
-    // }
-    // else if(currentDay===4){
-    //     day="Thursday";
-    // }
-    // else if(currentDay===5){
-    //     day="Friday";
-    // }
-    // else {
-    //     day="Saturday";
-    // }
-    // switch (currentDay) {
-    //     case 0:
-    //         day="Sunday"
-    //         break;
-    //     case 1:
-    //         day="Monday"
-    //         break;
-    //     case 2:
-    //         day="Tuesday"
-    //         break;
-    //     case 3:
-    //         day="Wednesday"
-    //         break;
-    //     case 4:
-    //         day="Thursday"
-    //         break;
-    //     case 5:
-    //         day="Friday"
-    //         break;
-    //     case 6:
-    //         day="Saturday"
-    //         break;
-    //     default:
-    //         console.log("Error is equal to:"+currentDay);
-    //         break;
-    // }
-
+    
     var options={
         weekday:"long",
         day: "numeric",
@@ -164,19 +102,6 @@ app.get("/:customListName", function(req, res){
 })
 
 app.post("/",function(req,res){
-    // console.log(req.body);
-    // let item=req.body.newItem;
-    // // console.log(item);
-
-    // if(req.body.list==='Work'){
-    //     workItems.push(item);
-    //     res.redirect("/work");
-    // }else{
-    //     items.push(item);
-    //     res.redirect("/");
-    // }
-    
-
     const itemName=req.body.newItem;
     const listName=req.body.list;
 
@@ -224,17 +149,6 @@ app.post("/delete", function(req, res){
     
 });
 
-
-// app.get("/work", function(req,res){
-//     res.render('list', {listTitle: "Work List", newListItems: workItems});
-// });
-
-// app.post("/work", function(req,res){
-    
-//     let item=req.body.newItem;
-//     workItems.push(item);
-//     res.redirect("/work");
-// });
 
 app.get("/about", function(req,res){
     res.render('about');
